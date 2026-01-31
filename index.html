@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <title>XYZ</title>   <!--you can change it to your name -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <style>
+
+/* ---------- RESET ---------- */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+/* ---------- GLOBAL BACKGROUND (LOVEABLE STYLE) ---------- */
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(black, #0a0a0a);
+            color: white;
+            overflow-x: hidden;
+        }
+
+/* ---------- PROFILE PHOTO ---------- */
+        .photo{
+            position: absolute;
+            top: 24%;
+            left: 50%;
+            transform: translate(-50%, -120%);
+        }
+
+        .photo img{
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+/* ---------- HERO ---------- */
+        .division-1{
+            height: 500px;
+            background: linear-gradient(black, #0a0a0a);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .division-1 h1{
+            font-size: 36px;
+        }
+
+        .division-1 p{
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+/* ---------- HOBBIES ---------- */
+        .division-2{
+            padding: 60px 20px 40px; /* ↓ reduced bottom gap */
+            text-align: center;
+        }
+
+        .division-2 p{
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .division-2 ul{
+            display: flex;
+            justify-content: center;
+            gap: 120px;
+            list-style: none;
+        }
+
+        .division-2 li{
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+/* ---------- VIDEOS ---------- */
+        .videos{
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 20px 60px; /* ↓ reduced gap before skills */
+            flex-wrap: wrap;
+        }
+
+        .videos video{
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 16 / 9;
+            border-radius: 14px;
+            object-fit: cover;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .label{
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+/* 🔥 POP-UP EFFECT (VIDEOS) */
+        .videos video:hover{
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+/* ---------- SKILLS ---------- */
+        .box-1{
+            padding: 50px 20px 30px; /* ↓ closer to hobbies */
+            text-align: center;
+        }
+
+        .box-1 p{
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .box-1 ul{
+            flex-direction: row;
+            display: flex;
+            justify-content: center;
+            gap: 130px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .box-1 li{
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+/* ---------- SKILL ICONS ---------- */
+        .skills-icons{
+            display: flex;
+            justify-content: center;
+            gap: 70px;
+            padding-bottom: 100px;
+            flex-wrap: wrap;
+        }
+
+        .skills-icons img{
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 18px;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .skill-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;   /* 🔑 centers text on logo */
+            gap: 12px;
+        }
+
+        .skill-card p{
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+/* 🔥 POP-UP EFFECT (SKILLS LOGOS) */
+        .skills-icons img:hover{
+            transform: scale(1.12);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+/* ---------- CONTACT ---------- */
+        .contact{
+            background: linear-gradient(black, #1a1a1a);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .contact-tag{
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .contact-title{
+            font-size: 42px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .contact-desc{
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 16px;
+            color: #cbd5f5;
+            line-height: 1.6;
+        }
+
+        .contact-btn{
+            display: inline-block;
+            padding: 14px 26px;
+            background-color: white;
+            color: #020617;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .contact-icons{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-icons a{
+            width: 44px;
+            height: 44px;
+            border: 1px solid #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .contact-icons a:hover{
+            background: white;
+            color: black;
+            transform: scale(1.15);
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 768px){
+            .division-2 ul,
+            .box-1 ul{
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .contact-title{
+                font-size: 32px;
+            }
+        }
+
+/* ---------- EDUCATION SECTION ---------- */
+        .education{
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .section-title{
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            letter-spacing: 1px;
+        }
+        
+        .education-list{
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .education-card{
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        /* 🔥 Hover effect */
+        .education-card:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+        }
+        
+        .education-card h3{
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .education-card .college{
+            font-size: 16px;
+            color: #cbd5f5;
+            margin-bottom: 4px;
+        }
+        
+        .education-card .year{
+            font-size: 14px;
+            color: #9ca3af;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- PROFILE PHOTO -->
+    <div class="photo">
+         <img src="photo-1.jpg" alt="Profile Photo">   <!-- add your photo here -->
+    </div>
+
+    <!-- HERO -->
+    <div class="division-1">
+        <h1>XYZ</h1>      <!--you can change it to your name -->
+        <p>Welcome to my website</p>
+    </div>
+
+    <!-- HOBBIES -->
+    <div class="division-2">
+        <p>MY HOBBIES</p>
+    </div>
+
+    <!-- VIDEOS -->
+    <div class="videos">
+
+        <!-- video 1 -->
+
+        <!-- here you can add the video of your hobbies  -->
+        <!-- also change the label names as per your hobbies -->
+    <div class="video-card">
+        <p class="label">GAMING</p>
+        <video autoplay muted loop src="VIDEO-1.mp4"></video>
+    </div>
+
+    <!-- video 2 -->
+
+    <div class="video-card">
+        <p class="label">CODING</p>
+        <video autoplay muted loop src="VIDEO-2.mp4"></video>
+    </div>
+
+    <!-- video 3 -->
+
+    <div class="video-card">
+        <p class="label">TRAVELLING</p>
+        <video autoplay muted loop src="VIDEO-3.mp4"></video>
+    </div>
+    </div>
+
+    <!-- SKILLS -->
+
+    <!-- change the logo's src as per your skills -->
+    <!-- change the skill names as per your skills  -->
+    <div class="box-1">
+        <p>MY SKILLS</p>
+    </div>
+
+    <!-- SKILL ICONS -->
+    <div class="skills-icons">
+    <div class="skill-card">
+        <p>HTML</p>
+        <img src="html-png.png">
+    </div>
+
+    <div class="skill-card">
+        <p>CSS</p>
+        <img src="css-png.png">
+    </div>
+
+    <div class="skill-card">
+        <p>JavaScript</p>
+        <img src="javaScript-png.png">
+    </div>
+
+    <div class="skill-card">
+        <p>MongoDB</p>
+        <img src="mongoDB-png.png">
+    </div>
+
+    <div class="skill-card">
+        <p>Database</p>
+        <img src="database-storage.png">
+    </div>
+    </div>
+
+    
+    <!-- EDUCATION SECTION -->
+
+    <!-- add here your education details -->
+
+    <section class="education">
+    <h2 class="section-title">MY EDUCATION</h2>
+
+    <div class="education-list">
+
+        <div class="education-card">
+            <h3>Bachelor of Computer Science</h3>
+            <p class="college">XYZ University</p>
+            <p class="year">2022 – 2025</p>
+        </div>
+
+        <div class="education-card">
+            <h3>Higher Secondary Education</h3>
+            <p class="college">ABC Junior College</p>
+            <p class="year">2020 – 2022</p>
+        </div>
+
+        <div class="education-card">
+            <h3>Secondary School</h3>
+            <p class="college">ABC High School</p>
+            <p class="year">2019 – 2020</p>
+        </div>
+
+    </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <!-- add your email and social media links in the contact section below -->
+
+    <section class="contact">
+        <p class="contact-tag">GET IN TOUCH</p>
+        <h2 class="contact-title">Let's work together</h2>
+        <p class="contact-desc">
+            I'm currently looking for full-time opportunities starting Summer 2025.
+            Feel free to reach out if you'd like to connect!
+        </p>
+
+        <a href="mailto:yourmail@example.com" class="contact-btn">
+            yourmail@example.com
+        </a>
+
+        <div class="contact-icons">
+            <a href="#">in</a>
+            <a href="#">GH</a>
+            <a href="#">TW</a>
+            <a href="#">@</a>
+        </div>
+    </section>
+
+
+
+</body>
+</html>
